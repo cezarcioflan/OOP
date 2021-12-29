@@ -3,4 +3,4 @@ project(Main_project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Main_project main.cpp)
+add_executable(Main_project main.cpp Act.cpp Date_contact.cpp Artist.cpp Aplicatie.cpp Cantareti.cpp)
