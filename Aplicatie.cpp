@@ -5,7 +5,7 @@
 #include "Aplicatie.h"
 
 Aplicatie::Aplicatie() {
-    nr_artisti=0;
+
     std::cout<<std::endl<<"creat Aplicatie ";
 }
 
@@ -15,22 +15,47 @@ Aplicatie::~Aplicatie() {
 
 void Aplicatie::adauga_artist(const Artist &artist_nou) {
     artist.push_back(artist_nou.clona());
+    nume.push_back(artist_nou.getNume());
 }
 
 
-void Aplicatie::setNrArtisti(int nrArtisti) {
-    nr_artisti = nrArtisti;
-}
 
-int Aplicatie::getNrArtisti() const {
-    return nr_artisti;
-}
 
 std::ostream &operator<<(std::ostream &os, const Aplicatie &aplicatie) {
     for(const auto &p: aplicatie.artist)
         os<<*p;
     return os;
 }
+
+const std::vector<std::shared_ptr<Artist>> &Aplicatie::getArtist() const {
+    return artist;
+}
+
+int cmp(const std::string &a, const std::string &b) {
+    return a<b;
+}
+
+void Aplicatie::sorteaza_artisti() {
+
+    std::sort(nume.begin(),nume.end(),cmp);
+
+}
+
+void Aplicatie::afiseaza_artisti() {
+
+    for(int i=0;i<nume.size();i++)
+        std::cout<<"\n"<<nume[i];
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

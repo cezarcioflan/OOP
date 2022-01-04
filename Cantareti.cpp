@@ -4,21 +4,21 @@
 
 #include "Cantareti.h"
 
-void Cantareti::setShow(const std::string &numeShow,int durata_noua,bool restrictieVarsta)
-{
-    nume_show = numeShow;
-    this->durata=durata_noua;
-    restrictie_varsta=restrictieVarsta;
-}
+//void Cantareti::setShow(const std::string &numeShow,int durata_noua,bool restrictieVarsta)
+//{
+    //nume_show = numeShow;
+    //this->durata=durata_noua;
+   // restrictie_varsta=restrictieVarsta;
+//}
 
-Cantareti::Cantareti(const std::string &nume): Artist(nume) {
-    std::cout<<std::endl<<"creat cantaret";
+//Cantareti::Cantareti(const std::string &nume): Artist(nume) {
+   // std::cout<<std::endl<<"creat cantaret";
 
-}
+//}
 
 
 
-void Cantareti::adauga_melodie(const std::string cantec) {
+void Cantareti::adauga_melodie(const std::string &cantec) {
     playlist.push_back(cantec);
 
 }
@@ -42,12 +42,15 @@ std::ostream &operator<<(std::ostream &os, const Cantareti &cantareti) {
 }
 
 
-Cantareti Cantareti::operator=(const Cantareti &copie) {
+Cantareti& Cantareti::operator=(const Cantareti &copie) {
     this->nume_show=copie.nume_show;
     this->durata=copie.durata;
 
     return *this;
 }
+
+Cantareti::Cantareti(const std::string &nume, const std::string &numeShow,int durata, bool restrictieVarsta) : Artist(nume), nume_show(numeShow),
+                                                          durata(durata), restrictie_varsta(restrictieVarsta) {}
 
 
 

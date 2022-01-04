@@ -6,27 +6,29 @@
 #define MAIN_PROJECT_ACT_H
 #include<string>
 #include<iostream>
+#include<cstring>
 class Act
 {
+
     std::string nume_act; //muzica, teatru, stand-up etc.
-    std::string pret_minim; //valoarea de la care pleaca pretul actului artistic
+    int pret_minim; //valoarea de la care pleaca pretul actului artistic
+    std::string cod_reducere;
+    int reducere;
 public:
 
 
-    Act(const std::string &numeAct,const std::string &pretMinim);
+    Act(const std::string &numeAct, int pretMinim, const std::string &codReducere, int reducere);
 
     friend std::ostream &operator<<(std::ostream &os, const Act &act);
 
-    Act(const Act& copie);
+    //const std::string &getNumeAct() const;
 
-    const std::string &getNumeAct() const;
+    Act& operator =(const Act &copie);
 
-    Act operator =(const Act& copie);
+    void aplica_reducere(const std::string &codReducere);
 
-    ~Act()
-    {
+    ~Act() = default;
 
-    };
 
 
 };

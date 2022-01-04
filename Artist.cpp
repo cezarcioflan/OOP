@@ -12,28 +12,42 @@ Artist::Artist(const std::string &nume) : nume(nume)
 
 
 void Artist::adauga_act(const Act &actul) {
-    act.push_back(actul);
+    act=actul;
 }
 
 void Artist::adauga_date(const Date_Contact &datele_noi) {
-    date.push_back(datele_noi);
+    date=datele_noi;
 }
 
 std::ostream &operator<<(std::ostream &os, const Artist &artist) {
     os << artist.nume<<std::endl;
-    for (const auto &p: artist.act)
-        os << p;
+        os << artist.act;
     os << std::endl;
-    for (const auto &j: artist.date)
-        os << j;
+        os << artist.date;
     os << std::endl;
     return os;
 }
 
-
 void Artist::setNume(const std::string &numele) {
     this->nume = numele;
 }
+
+const std::string &Artist::getNume() const {
+    return nume;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -12,7 +12,9 @@
 
 class Aplicatie {
         std::vector<std::shared_ptr<Artist>> artist;
-        int nr_artisti;
+        std::vector<std::string> nume;
+        // functia mea de sortare are o problema cu numele din vectorul artist, asa ca le-am stocat separat pana ma gandesc la o rezolvare
+
 
     public:
         Aplicatie();
@@ -21,14 +23,15 @@ class Aplicatie {
 
         void adauga_artist(const Artist &artist_nou);
 
+    const std::vector<std::shared_ptr<Artist>> &getArtist() const;
 
+    friend int cmp(const std::string &a,const std::string &b);
 
-    int getNrArtisti() const;
+    void sorteaza_artisti();
 
-    void setNrArtisti(int nrArtisti);
+    void afiseaza_artisti();
 
     friend std::ostream &operator<<(std::ostream &os, const Aplicatie &aplicatie);
-
 
 };
 

@@ -15,21 +15,20 @@ class Cantareti : public Artist{
     bool restrictie_varsta;  //1 pentru 16+, 0 pentru toate varstele
 
 public:
-    void setShow(const std::string &numeShow, int durata, bool restrictieVarsta);
+    //void setShow(const std::string &numeShow, int durata, bool restrictieVarsta);
 
-     explicit Cantareti(const std::string &nume);
+    Cantareti(const std::string &nume, const std::string &numeShow,
+              int durata, bool restrictieVarsta);
 
-    void adauga_melodie(std::string cantec);
+    void adauga_melodie(const std::string &cantec);
 
     void arata_playlist();
 
     std::shared_ptr <Artist> clona() const override;
 
     friend std::ostream &operator<<(std::ostream &os, const Cantareti &cantareti);
-    Cantareti operator=(const Cantareti &copie);
 
-
-
+    Cantareti& operator=(const Cantareti &copie);
 
 };
 
