@@ -1,2 +1,2 @@
 # OOP
-Am adaugat o clasa care se ocupa de rezervari si verifica daca rezervarile sunt posibile,functii care calculeaza pretul biletelor, o functie noua de sortare, functii virtuale, si inca doua clase care mostenesc clasa artist. (codul face un mic poc pe la ASCII art-uri din niste motive pe care nu le cunosc, dar vad ca functioneaza bine)
+Am corectat greselile de data trecuta. Am mutat vectorul de rezervari si functiile care-l foloseau in Aplicatie(nu stiu ce mi-a venit sa-l pun in clasa Rezervare), am adaugat enum-uri si constructori de copiere. Sugestia cu sursa externa pentru glume e tare, dar suntem presati de colocvii si proiecte din toate partile.
