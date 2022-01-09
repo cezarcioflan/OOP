@@ -1,2 +1,2 @@
 # OOP
-Aici est tema 1 completa, iar pentru tema 2 trebuie sa adaug exceptii si stl. Si voi mai implementa inca doua clase care vor mosteni clasa Artist.
+Am adaugat o clasa care se ocupa de rezervari si verifica daca rezervarile sunt posibile, o functie noua de sortare, functii virtuale, si inca doua clase care mostenesc clasa artist. 
