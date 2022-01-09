@@ -4,18 +4,6 @@
 
 #include "Cantareti.h"
 
-//void Cantareti::setShow(const std::string &numeShow,int durata_noua,bool restrictieVarsta)
-//{
-    //nume_show = numeShow;
-    //this->durata=durata_noua;
-   // restrictie_varsta=restrictieVarsta;
-//}
-
-//Cantareti::Cantareti(const std::string &nume): Artist(nume) {
-   // std::cout<<std::endl<<"creat cantaret";
-
-//}
-
 
 
 void Cantareti::adauga_melodie(const std::string &cantec) {
@@ -35,9 +23,12 @@ void Cantareti::arata_playlist() {
     }
 
 std::ostream &operator<<(std::ostream &os, const Cantareti &cantareti) {
-    os << static_cast<const Artist &>(cantareti) << " nume_show: " << cantareti.nume_show
-       << " durata: " << cantareti.durata << " restrictie_varsta: "
-       << cantareti.restrictie_varsta;
+    os <<std::endl<<std::endl<<static_cast<const Artist &>(cantareti) <<std::endl<< "nume show: " << cantareti.nume_show<<std::endl
+       << "durata: " << cantareti.durata<<" de minute" <<std::endl<< "restrictie varsta: ";
+    if(cantareti.restrictie_varsta==1)
+        os<<"Da";
+    else
+        os<<"Nu";
     return os;
 }
 
@@ -45,12 +36,40 @@ std::ostream &operator<<(std::ostream &os, const Cantareti &cantareti) {
 Cantareti& Cantareti::operator=(const Cantareti &copie) {
     this->nume_show=copie.nume_show;
     this->durata=copie.durata;
+    this->restrictie_varsta=copie.restrictie_varsta;
 
     return *this;
 }
 
-Cantareti::Cantareti(const std::string &nume, const std::string &numeShow,int durata, bool restrictieVarsta) : Artist(nume), nume_show(numeShow),
-                                                          durata(durata), restrictie_varsta(restrictieVarsta) {}
+
+
+void Cantareti::mesajul_de_rezervare() {
+    std::cout<<std::endl<<std::endl<<"Daca doresti ca ";
+    if(tip==1)
+        std::cout<<"acest cantaret ";
+    if(tip==2)
+        std::cout<<"aceasta căntareata ";
+    if(tip==3)
+        std::cout<<"aceasta trupa ";
+    std::cout<<"sa cante la evenimentul tau, apeleaza numarul afisat pe ecran!"<<std::endl<<std::endl;
+}
+
+Cantareti::Cantareti(const std::string &nume, const std::string &numeShow, const std::vector<std::string> &playlist,
+                     int durata, int tip, bool restrictieVarsta) : Artist(nume), nume_show(numeShow),
+                                                                   playlist(playlist), durata(durata), tip(tip),
+                                                                   restrictie_varsta(restrictieVarsta) {}
+
+void Cantareti::prezentare() {
+
+    srand(time(NULL));
+    int j = rand() % playlist.size();
+
+    std::cout<<"Daca iti doresti sa auzi "<<playlist[j]<<" live, aceasta este cea mai buna alegere";
+
+}
+
+
+
 
 
 

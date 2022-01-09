@@ -4,10 +4,8 @@
 #include"Artist.h"
 
 
-Artist::Artist(const std::string &nume) : nume(nume)
-{
+Artist::Artist(const std::string &nume) : nume(nume){
     this->nume=nume;
-
 }
 
 
@@ -24,7 +22,7 @@ std::ostream &operator<<(std::ostream &os, const Artist &artist) {
         os << artist.act;
     os << std::endl;
         os << artist.date;
-    os << std::endl;
+
     return os;
 }
 
@@ -34,6 +32,10 @@ void Artist::setNume(const std::string &numele) {
 
 const std::string &Artist::getNume() const {
     return nume;
+}
+
+int Artist::arata_pret() const {
+    return act.getPretMinim();
 }
 
 

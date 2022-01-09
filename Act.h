@@ -29,6 +29,9 @@ public:
 
     ~Act() = default;
 
+    int getPretMinim() const;
+
+    void setReducere(int &reducere);
 
 
 };

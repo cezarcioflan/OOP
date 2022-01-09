@@ -30,8 +30,16 @@ void Act::aplica_reducere(const std::string &codReducere) {
 
     if(codReducere==cod_reducere)
         pret_minim=pret_minim-(pret_minim*reducere/100);
+    reducere = 0 ;
 
 }
+
+int Act::getPretMinim() const {
+    return pret_minim;
+}
+
+
+
 
 
 

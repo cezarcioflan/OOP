@@ -38,7 +38,15 @@ public:
 
     const std::string &getNume() const;
 
+    virtual void mesajul_de_rezervare() = 0;
 
+    int arata_pret() const;
+
+    virtual void prezentare() = 0;
+
+
+
+    //virtual void afisare_categorie() = 0;
 
 
 

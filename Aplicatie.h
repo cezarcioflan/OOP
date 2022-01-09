@@ -8,12 +8,13 @@
 #include<vector>
 #include<string>
 #include"Artist.h"
+#include"Cantareti.h"
 #include<memory>
 
 class Aplicatie {
-        std::vector<std::shared_ptr<Artist>> artist;
-        std::vector<std::string> nume;
-        // functia mea de sortare are o problema cu numele din vectorul artist, asa ca le-am stocat separat pana ma gandesc la o rezolvare
+        std::vector<std::shared_ptr<Artist>> artisti;
+        //std::vector<std::string> nume;
+        // functia mea de sortare are o problema cu numele din vectorul artisti, asa ca le-am stocat separat pana ma gandesc la o rezolvare
 
 
     public:
@@ -25,13 +26,15 @@ class Aplicatie {
 
     const std::vector<std::shared_ptr<Artist>> &getArtist() const;
 
-    friend int cmp(const std::string &a,const std::string &b);
-
-    void sorteaza_artisti();
+    void sorteaza_artisti_alfabetic();
 
     void afiseaza_artisti();
 
     friend std::ostream &operator<<(std::ostream &os, const Aplicatie &aplicatie);
+
+    void sorteaza_artisti_dupa_pret();
+
+
 
 };
 
