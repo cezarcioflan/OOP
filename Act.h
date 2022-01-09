@@ -23,7 +23,7 @@ public:
 
     //const std::string &getNumeAct() const;
 
-    Act& operator =(const Act &copie);
+    Act& operator =(const Act &copie) = default;
 
     void aplica_reducere(const std::string &codReducere);
 
@@ -31,7 +31,7 @@ public:
 
     int getPretMinim() const;
 
-    void setReducere(int &reducere);
+    //Act(Act &copie);
 
 
 };

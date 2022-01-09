@@ -8,13 +8,14 @@
 #include<vector>
 #include<string>
 #include"Artist.h"
-#include"Cantareti.h"
+#include"Cantaret.h"
 #include<memory>
+#include"Rezervare.h"
 
 class Aplicatie {
         std::vector<std::shared_ptr<Artist>> artisti;
-        //std::vector<std::string> nume;
-        // functia mea de sortare are o problema cu numele din vectorul artisti, asa ca le-am stocat separat pana ma gandesc la o rezolvare
+        std::vector<Rezervare> rez;
+
 
 
     public:
@@ -31,6 +32,14 @@ class Aplicatie {
     void afiseaza_artisti();
 
     friend std::ostream &operator<<(std::ostream &os, const Aplicatie &aplicatie);
+
+    void confirma_rezervare(const Rezervare &R);
+
+    int verifica_rezervari(const Rezervare &R);
+
+    void arata_rezervare(const Artist &A);
+
+    void arata_rezervari();
 
     void sorteaza_artisti_dupa_pret();
 

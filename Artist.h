@@ -10,6 +10,15 @@
 #include<algorithm>
 #ifndef MAIN_PROJECT_ARTIST_H
 #define MAIN_PROJECT_ARTIST_H
+
+enum class tip{
+    cantaret=1, cantareata, formatie
+};
+
+enum class meserie{
+    magician,clown,actor
+};
+
 class Artist
 {
     std::string nume;
@@ -46,13 +55,8 @@ public:
 
 
 
-    //virtual void afisare_categorie() = 0;
 
 
-
-
-    //std::vector<std::shared_ptr<Date_Contact>> &getDate_Contact();
-    //std::vector<std::shared_ptr<Act>> &getAct();
 
 
 };
