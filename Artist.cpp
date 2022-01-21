@@ -5,7 +5,11 @@
 
 
 Artist::Artist(const std::string &nume) : nume(nume){
+
+    if (nume.size() < 2)
+        throw eroare_nume();
     this->nume=nume;
+
 }
 
 
@@ -36,6 +40,12 @@ const std::string &Artist::getNume() const {
 
 int Artist::arata_pret() const {
     return act.getPretMinim();
+}
+
+void Artist::adauga_festival(const Festival<float> &festival) {
+
+    festivaluri.push_back(festival);
+
 }
 
 

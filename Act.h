@@ -7,6 +7,7 @@
 #include<string>
 #include<iostream>
 #include<cstring>
+#include"Exceptii.h"
 class Act
 {
 

@@ -8,6 +8,8 @@
 #include<memory>
 //#include<bits/stdc++.h>
 #include<algorithm>
+#include"Festival.h"
+#include"Exceptii.h"
 #ifndef MAIN_PROJECT_ARTIST_H
 #define MAIN_PROJECT_ARTIST_H
 
@@ -22,8 +24,10 @@ enum class meserie{
 class Artist
 {
     std::string nume;
-    Act act=Act("null",0,"null",0);
-    Date_Contact date=Date_Contact("000000000","adresa@email.ro");
+    Act act = Act("null",0,"null",0);
+    Date_Contact date = Date_Contact("000000000","adresa@email.ro");
+    std::vector<Festival<float>> festivaluri; //o sa intre in constructor, dar momentan testez sa vad daca merge factory-ul
+
 
 
 public:
@@ -52,6 +56,10 @@ public:
     int arata_pret() const;
 
     virtual void prezentare() = 0;
+
+    void adauga_festival(const Festival<float> &festival);
+
+
 
 
 

@@ -58,8 +58,34 @@ public:
 
     void arata_bilete(const Artist &a);
 
+    friend class rezervare_builder;
+
 
 };
 
+ class rezervare_builder{
+     Rezervare R;
+ public:
+     rezervare_builder() = default;
+
+     rezervare_builder& nume(std::string nume);
+
+     rezervare_builder& locatia(std::string locatia);
+
+     rezervare_builder& ziua(int zi);
+
+     rezervare_builder& luna(std::string luna);
+
+     rezervare_builder& anul(int an);
+
+     rezervare_builder& ora_i(int ora);
+
+     rezervare_builder& ora_s(int ora);
+
+     Rezervare build();
+
+
+
+ };
 
 #endif //MAIN_PROJECT_REZERVARE_H

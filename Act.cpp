@@ -8,8 +8,8 @@ Act::Act(const std::string &numeAct, int pretMinim, const std::string &codReduce
                                                                                                             pretMinim),
                                                                                                     cod_reducere(
                                                                                                             codReducere),
-                                                                                                    reducere(
-                                                                                                            reducere) {}
+                                                                                                    reducere(reducere){
+}
 
 
 std::ostream &operator<<(std::ostream &os, const Act &act) {

@@ -8,32 +8,6 @@
 
 #include "Rezervare.h"
 
-/*void Rezervare::confirma_rezervare(const Rezervare &R) {
-
-    if(verifica_rezervari(R) == 1)
-    {
-        std::cout<<std::endl<<"Data este indisponibila ";
-    }
-    else
-    {
-        rez.push_back(R);
-        std::cout<<std::endl<<"Rezervarea a fost facuta ";
-    }
-
-}*/
-
-
-
-/*void Rezervare::arata_rezervare(const Artist &A) {
-    for(int i=0;i<rez.size();i++)
-    {
-        if(rez[i].getNumele() == A.getNume())
-        {
-            std::cout<<std::endl<<rez[i].getNumele()<<" "<<rez[i].getZiua()<<" "<<rez[i].getLuna()<<" "<<rez[i].getAnul()<<" "<<rez[i].getLocatia()<<" "<<rez[i].getOraInceperii()<<" "<<rez[i].getOraTerminarii()<<std::endl;
-        }
-    }
-}*/
-
 const std::string &Rezervare::getNumele() const {
     return numele;
 }
@@ -69,14 +43,6 @@ int Rezervare::getAnul() const {
 
 Rezervare::Rezervare() {}
 
-/*void Rezervare::arata_rezervari() {
-
-    for(int i=0;i<rez.size();i++)
-        std::cout<<std::endl<<rez[i].getNumele()<<" "<<rez[i].getZiua()<<" "<<rez[i].getLuna()<<" "<<rez[i].getAnul()<<" "<<rez[i].getLocatia()<<" "<<rez[i].getOraInceperii()<<" "<<rez[i].getOraTerminarii()<<std::endl;
-
-
-}*/
-
 int Rezervare::bilet_simplu(const Artist &a) {
 
     return (a.arata_pret()/100);
@@ -97,25 +63,45 @@ void Rezervare::arata_bilete(const Artist &a) {
 
 }
 
-/*int Rezervare::verifica_rezervari(const Rezervare &R) {
+rezervare_builder &rezervare_builder::nume(std::string nume) {
 
-    for(int i = 0;i<rez.size();i++)
-    {
-        if(rez[i].getNumele()==R.getNumele() && rez[i].getAnul()==R.getAnul() && rez[i].getLuna()==R.getLuna() && rez[i].getZiua() == R.getZiua())
-        {
-            if(R.getOraTerminarii() < rez[i].getOraInceperii() || R.getOraInceperii() > rez[i].getOraTerminarii())
-            {
-                return 0;
-            }
-            else
-            {
-                return 1;
-            }
-
-        }
-    }
-
-    return 0;
-
+    R.numele = nume;
+    return *this;
 }
- */
+
+rezervare_builder &rezervare_builder::locatia(std::string locatia) {
+    R.locatia = locatia;
+    return *this;
+}
+
+rezervare_builder &rezervare_builder::ziua(int zi) {
+    R.ziua = zi;
+    return *this;
+}
+
+
+rezervare_builder &rezervare_builder::luna(std::string luna) {
+    R.luna = luna;
+    return *this;
+}
+
+
+rezervare_builder &rezervare_builder::anul(int an) {
+    R.anul = an;
+    return *this;
+}
+
+rezervare_builder &rezervare_builder::ora_i(int ora) {
+    R.ora_inceperii = ora;
+    return *this;
+}
+
+
+rezervare_builder &rezervare_builder::ora_s(int ora) {
+    R.ora_terminarii = ora;
+    return *this;
+}
+
+Rezervare rezervare_builder::build() {
+    return R;
+}

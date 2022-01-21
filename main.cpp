@@ -8,6 +8,8 @@
 #include"Animator.h"
 #include"Rezervare.h"
 #include<ctime>
+#include"Festival.h"
+#include"Exceptii.h"
 
 
 
@@ -16,11 +18,14 @@
 
 
 int main() {
+    /*
     srand(time(NULL));
     Aplicatie A;
     Rezervare R;
-    Cantaret cantaret1 = Cantaret("Green onions experience", "concert",
-                                  {"hey joe", "all along the watchtower", "purple haze"}, 120,tip::formatie, false);
+
+        Cantaret cantaret1 = Cantaret("Green onions experience", "concert",
+                                      {"hey joe", "all along the watchtower", "purple haze"}, 120, tip::formatie, false);
+
 
     Comediant comediant1 = Comediant("Costel Bojog",{"oriunde"},{"n-am"},true,{"Cum se numeste un labrador care e magician? -Un Labracadabrador"},{"Cand dormi prost toata noaptea, este imposibil sa te trezesti destept dimineata."});
     Date_Contact dc1 = Date_Contact("0755394274","green@goe.ro");
@@ -63,8 +68,27 @@ int main() {
     //std::cout<<A;
     //C.push_back(cantaret1);
     //std::cout<<C[0];
+     */
+
+    srand(time(NULL));
+    Aplicatie A;
+    Rezervare R;
+   try {
+       Cantaret cantaret1 = Cantaret("Green onions experience", "concert",
+                                     {"hey joe", "all along the watchtower", "purple haze"}, 120, tip::formatie,
+                                     false);
+
+       cantaret1.adauga_festival(Festival_factory<float>::electric_castle());
+
+       rezervare_builder b;
+
+       Rezervare R2 = b.anul(2022).luna("august").ziua(20).locatia("Carul cu bere").nume("Costel Bojog").ora_i(
+               18).ora_s(20).build();
 
 
+   }catch (eroare_artist &error){
+       std::cout<<error.what() <<"\n";
+   }
 
 
 
@@ -72,4 +96,5 @@ int main() {
 
 
     return 0;
+
 }
