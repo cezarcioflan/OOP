@@ -77,7 +77,7 @@ int main() {
     Date_Contact dc1= Date_Contact("0757539","adresa@email.com");
    try {
        try {
-           Act act1 = Act("concert",1,"yecgaa",20);
+           Act act1 = Act("concert",100,"yecgaa",20);
 
            Cantaret cantaret1 = Cantaret("Green onions experience", act1, dc1,
                                          {Festival_factory<float>::electric_castle()}, "concert",
