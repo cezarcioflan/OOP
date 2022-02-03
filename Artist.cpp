@@ -54,7 +54,12 @@ void Artist::adauga_festival(const Festival<float> &festival) {
 
 Artist::Artist(const std::string &nume, const Act &act, const Date_Contact &date,
                const std::vector<Festival<float>> &festivaluri) : nume(nume), act(act), date(date),
-                                                                  festivaluri(festivaluri) {}
+                                                                  festivaluri(festivaluri) {
+    if (nume.size() < 2)
+        throw eroare_nume();
+    this->nume=nume;
+
+}
 
 
 

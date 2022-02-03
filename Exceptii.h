@@ -24,7 +24,7 @@ public:
 
 };
 
-class eroare_act : std::runtime_error{
+class eroare_act : public std::runtime_error{
 public:
     eroare_act(const std::string &arg);
 

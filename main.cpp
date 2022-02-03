@@ -73,22 +73,29 @@ int main() {
     srand(time(NULL));
     Aplicatie A;
     Rezervare R;
-    Act act1;
+    //Act act1 = Act("concert",1,"yecgaa",20);
     Date_Contact dc1= Date_Contact("0757539","adresa@email.com");
    try {
+       try {
+           Act act1 = Act("concert",1,"yecgaa",20);
 
-       Cantaret cantaret1 = Cantaret("Green onions experience",act1 , dc1,{Festival_factory<float>::electric_castle()} ,"concert",
-                                     {"hey joe", "all along the watchtower", "purple haze"}, 120, false,tip::formatie);
+           Cantaret cantaret1 = Cantaret("Green onions experience", act1, dc1,
+                                         {Festival_factory<float>::electric_castle()}, "concert",
+                                         {"hey joe", "all along the watchtower", "purple haze"}, 120, false,
+                                         tip::formatie);
 
-       //cantaret1.adauga_festival(Festival_factory<float>::electric_castle());
+           cantaret1.adauga_festival(Festival_factory<float>::electric_castle());
 
-       rezervare_builder b;
+           rezervare_builder b;
 
-       Rezervare R2 = b.anul(2022).luna("august").ziua(20).locatia("Carul cu bere").nume("Costel Bojog").ora_i(
-               18).ora_s(20).build();
-       Aplicatie B = Aplicatie(A);
+           Rezervare R2 = b.anul(2022).luna("august").ziua(20).locatia("Carul cu bere").nume("Costel Bojog").ora_i(
+                   18).ora_s(20).build();
+           Aplicatie B = Aplicatie(A);
 
-
+       }catch(eroare_act &error)
+       {
+           std::cout<<error.what() <<'\n';
+       }
    }catch (eroare_artist &error){
        std::cout<<error.what() <<"\n";
    }

@@ -9,6 +9,8 @@ Act::Act(const std::string &numeAct, int pretMinim, const std::string &codReduce
                                                                                                     cod_reducere(
                                                                                                             codReducere),
                                                                                                     reducere(reducere){
+    if(pretMinim < 100)
+        throw eroare_pret();
 }
 
 
