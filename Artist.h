@@ -13,9 +13,7 @@
 #ifndef MAIN_PROJECT_ARTIST_H
 #define MAIN_PROJECT_ARTIST_H
 
-enum class tip{
-    cantaret=1, cantareata, formatie
-};
+
 
 enum class meserie{
     magician,clown,actor
@@ -24,20 +22,21 @@ enum class meserie{
 class Artist
 {
     std::string nume;
-    Act act = Act("null",0,"null",0);
-    Date_Contact date = Date_Contact("000000000","adresa@email.ro");
-    std::vector<Festival<float>> festivaluri; //o sa intre in constructor, dar momentan testez sa vad daca merge factory-ul
+    Act act;
+    Date_Contact date;
+    std::vector<Festival<float>> festivaluri;
 
 
 
 public:
+    Artist() = default;
 
     virtual ~Artist()
     {
         std::cout<<std::endl<<"distrus Artist";
     }
 
-    explicit Artist(const std::string &nume);
+    //explicit Artist(const std::string &nume);
 
     void adauga_act(const Act &act);
 
@@ -57,7 +56,12 @@ public:
 
     virtual void prezentare() = 0;
 
+    Artist(const std::string &nume, const Act &act, const Date_Contact &date,
+           const std::vector<Festival<float>> &festivaluri);
+
     void adauga_festival(const Festival<float> &festival);
+
+
 
 
 

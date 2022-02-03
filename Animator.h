@@ -15,8 +15,8 @@ class Animator : public Artist {
     meserie tip; //actor, magician, clown etc.
 
 public:
-    Animator(const std::string &nume, const std::vector<std::string> &aptitudini,
-              const meserie &tip);
+    Animator(const std::string &nume, const Act &act, const Date_Contact &date,
+             const std::vector<Festival<float>> &festivaluri, const std::vector<std::string> &aptitudini, meserie tip);
 
     void mesajul_de_rezervare() override;
 

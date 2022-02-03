@@ -4,13 +4,17 @@
 #include"Artist.h"
 
 
-Artist::Artist(const std::string &nume) : nume(nume){
+
+/*Artist::Artist(const std::string &nume) : nume(nume){
 
     if (nume.size() < 2)
         throw eroare_nume();
     this->nume=nume;
 
 }
+*/
+
+
 
 
 void Artist::adauga_act(const Act &actul) {
@@ -47,6 +51,10 @@ void Artist::adauga_festival(const Festival<float> &festival) {
     festivaluri.push_back(festival);
 
 }
+
+Artist::Artist(const std::string &nume, const Act &act, const Date_Contact &date,
+               const std::vector<Festival<float>> &festivaluri) : nume(nume), act(act), date(date),
+                                                                  festivaluri(festivaluri) {}
 
 
 

@@ -4,13 +4,7 @@
 
 #include "Comediant.h"
 
-Comediant::Comediant(const std::string &nume, const std::vector<std::string> &disponibilitate,
-                       const std::vector<std::string> &conditii, bool material,const std::vector<std::string> &gluma_seaca,const std::vector<std::string> &observatie) : Artist(nume),
-                                                                                  disponibilitate(disponibilitate),
-                                                                                  conditii(conditii),
-                                                                                  material(material),
-                                                                                  gluma_seaca(gluma_seaca),
-                                                                                  observatie(observatie){}
+
 
 std::shared_ptr<Artist> Comediant::clona() const{
     return std::make_shared <Comediant>(*this);
@@ -46,35 +40,44 @@ void Comediant::adauga_conditie(const std::string &a) {
 
 void Comediant::prezentare() {
     std::string x;
-    std::cout<<std::endl<<"Am o gluma seaca si o observatie. Pe care vrei s-o auzi?"<<std::endl;
+    std::cout<<std::endl<<"Am o gluma seaca si o observatii. Pe care vrei s-o auzi?"<<std::endl;
     std::cin>>x;
     if(x=="observatia")
-        std::cout<<observatie[rand()%observatie.size()];
+        std::cout << observatii[rand() % observatii.size()];
     if(x=="gluma")
-        std::cout<<gluma_seaca[rand()%gluma_seaca.size()];
+        std::cout << glume_seci[rand() % glume_seci.size()];
 
 }
 
 void Comediant::glume_prezentare(const std::string &a, const std::string &b) {
 
-    gluma_seaca.push_back(a);
-    observatie.push_back(b);
+    glume_seci.push_back(a);
+    observatii.push_back(b);
 
 }
 
 Comediant &Comediant::operator=(const Comediant &copie) {
     this->conditii=copie.conditii;
     this->disponibilitate=copie.disponibilitate;
-    this->observatie=copie.observatie;
-    this->gluma_seaca=copie.gluma_seaca;
+    this->observatii=copie.observatii;
+    this->glume_seci=copie.glume_seci;
     this->material=copie.material;
 
 
     return *this;
 }
 
-Comediant::Comediant(const std::string &nume, const Comediant &copie): Artist(nume),conditii(copie.conditii),disponibilitate(copie.disponibilitate),
-                                                                        observatie(copie.observatie),gluma_seaca(copie.gluma_seaca),material(copie.material){}
+
+
+Comediant::Comediant(const std::string &nume, const Act &act, const Date_Contact &date,
+                     const std::vector<Festival<float>> &festivaluri, const std::vector<std::string> &disponibilitate,
+                     const std::vector<std::string> &conditii, bool material,
+                     const std::vector<std::string> &glumaSeaca, const std::vector<std::string> &observatie) : Artist(
+        nume, act, date, festivaluri), disponibilitate(disponibilitate), conditii(conditii), material(material),
+                                                                                                               glume_seci(
+                                                                                                                       glumaSeaca),
+                                                                                                               observatii(
+                                                                                                                       observatie) {}
 
 
 

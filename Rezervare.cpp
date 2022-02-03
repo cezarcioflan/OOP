@@ -105,3 +105,10 @@ rezervare_builder &rezervare_builder::ora_s(int ora) {
 Rezervare rezervare_builder::build() {
     return R;
 }
+
+std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare) {
+    os << "numele: " << rezervare.numele << " locatia: " << rezervare.locatia << " ziua: " << rezervare.ziua
+       << " luna: " << rezervare.luna << " anul: " << rezervare.anul << " ora_inceperii: " << rezervare.ora_inceperii
+       << " ora_terminarii: " << rezervare.ora_terminarii;
+    return os;
+}

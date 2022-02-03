@@ -64,15 +64,11 @@ int Aplicatie::verifica_rezervari(const Rezervare &R) {
             {
                 return 0;
             }
-            else
-            {
-                return 1;
-            }
 
         }
     }
 
-    return 0;
+    return 1;
 
 }
 
@@ -90,13 +86,9 @@ void Aplicatie::confirma_rezervare(const Rezervare &R) {
 
 }
 
-void Aplicatie::arata_rezervare(const Artist &A) {
-
-    for(int i=0;i<rez.size();i++)
-        std::cout<<std::endl<<rez[i].getNumele()<<" "<<rez[i].getZiua()<<" "<<rez[i].getLuna()<<" "<<rez[i].getAnul()<<" "<<rez[i].getLocatia()<<" "<<rez[i].getOraInceperii()<<" "<<rez[i].getOraTerminarii()<<std::endl;
 
 
-}
+
 
 void Aplicatie::arata_rezervari() {
 
@@ -106,6 +98,32 @@ void Aplicatie::arata_rezervari() {
 
 
 }
+
+Aplicatie::Aplicatie(const Aplicatie &copie) {
+
+    for(const auto &p:copie.artisti)
+        artisti.push_back(p->clona());
+    for(const auto &p:copie.rez)
+        rez.push_back(p);
+
+}
+
+Aplicatie &Aplicatie::operator=(Aplicatie &copie) {
+
+    swap(*this,copie);
+    return *this;
+
+}
+
+void swap(Aplicatie &a, Aplicatie &b) {
+
+    using std::swap;
+    swap(a.artisti, b.artisti);
+    swap(a.rez,b.rez);
+
+}
+
+
 
 
 

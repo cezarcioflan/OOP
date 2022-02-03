@@ -10,6 +10,9 @@
 #include<string>
 #include<vector>
 
+enum class tip{
+    cantaret=1, cantareata, formatie
+};
 
 class Cantaret : public Artist {
 
@@ -27,8 +30,9 @@ class Cantaret : public Artist {
 
 public:
 
-    Cantaret(const std::string &nume, const std::string &numeShow, const std::vector<std::string> &playlist,
-             int durata, const tip gen, bool restrictieVarsta);
+    Cantaret(const std::string &nume, const Act &act, const Date_Contact &date,
+             const std::vector<Festival<float>> &festivaluri, const std::string &numeShow,
+             const std::vector<std::string> &playlist, int durata, bool restrictieVarsta, tip gen);
 
     void adauga_melodie(const std::string &cantec);
 
@@ -44,7 +48,7 @@ public:
 
     void mesajul_de_rezervare() override;
 
-    Cantaret(const std::string &nume, const Cantaret &copie);
+
 
 
 };

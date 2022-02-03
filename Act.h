@@ -20,11 +20,13 @@ public:
 
     Act(const std::string &numeAct, int pretMinim, const std::string &codReducere, int reducere);
 
+    Act();
+
     friend std::ostream &operator<<(std::ostream &os, const Act &act);
 
     //const std::string &getNumeAct() const;
 
-    Act& operator =(const Act &copie) = default;
+    //Act& operator =(const Act &copie);
 
     void aplica_reducere(const std::string &codReducere);
 

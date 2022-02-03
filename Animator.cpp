@@ -13,9 +13,7 @@ void Animator::mesajul_de_rezervare() {
     std::cout<<"Daca doresti ca acest animator sa faca evenimentul tau memorabil, apeleaza numarul afisat pe ecran";
 }
 
-Animator::Animator(const std::string &nume, const std::vector<std::string> &aptitudini,
-                     const meserie &tip) : Artist(nume), aptitudini(aptitudini),
-                                                                tip(tip) {}
+
 
 void Animator::adauga_aptitudine(const std::string &a) {
     aptitudini.push_back(a);
@@ -27,7 +25,7 @@ void Animator::prezentare() {
     {   std::cout<<std::endl;
         std::cout<<"                  ."<<std::endl;
         std::cout<<std::endl;
-        std::cout<<"                     ."<<std::endl; //ascii arturile sunt de pe https://asciiart.website/
+        std::cout<<"                     ."<<std::endl; //ascii arturile sunt de pe https://www.asciiart.eu/people/occupations/wizards
         std::cout<<"         /^\\\\    ."<<std::endl;
         std::cout<<"    /\\   \"V\""<<std::endl;
         std::cout<<"   /__\\   I      O  o"<<std::endl;
@@ -56,7 +54,7 @@ void Animator::prezentare() {
         std::cout<<"   {   ~  /\\/  -<( o)   ( o)>-  \\/\\ ~   ~}"<<std::endl;
         std::cout<<"    { ~   ;(      \\/ .-. \\/      );   ~ }"<<std::endl;
         std::cout<<"     { ~ ~\\_  ()  ^ (   ) ^  ()  _/ ~  }"<<std::endl;
-        std::cout<<"       '-._~ \\   (`-._'-'_.-')   / ~_.-'"<<std::endl;
+        std::cout<<"       '-._~ \\   (`-._'-'_.-')   / ~_.-'"<<std::endl;      //https://asciiart.website/index.php?art=people/occupations/clowns
         std::cout<<"          '--\\   `'._'\"'_.'`   /--'"<<std::endl;
         std::cout<<"              \\     \\`-'/     /"<<std::endl;
         std::cout<<"               `\\    '-'    /'"<<std::endl;
@@ -81,7 +79,7 @@ void Animator::prezentare() {
         std::cout<<"      '@W       |[        @@               _.   l@"<<std::endl;
         std::cout<<"       Y@i      'Ns    .  @@   _m@@m,    g*~VWi l@"<<std::endl;
         std::cout<<"        M@. ,.       g@` ]@@  gP    V,  '  m- ` l@"<<std::endl;
-        std::cout<<"        '@W  Vmmmmmm@f   @@@. ~  m-    g   '    l@"<<std::endl;
+        std::cout<<"        '@W  Vmmmmmm@f   @@@. ~  m-    g   '    l@"<<std::endl;             //https://asciiart.website/index.php?art=logos%20and%20insignias/drama%20masks accesate la 6.1.2022
         std::cout<<"         '@b  'V***f    g@A@W    '     @        l@"<<std::endl;
         std::cout<<"          '*W_         g@A`M@b       g M_.      l@"<<std::endl;
         std::cout<<"            'VMms___gW@@f   @@.      '- ~`      W@"<<std::endl;
@@ -113,3 +111,7 @@ std::ostream &operator<<(std::ostream &os, const Animator &animatori) {
 
     return os;
 }
+
+Animator::Animator(const std::string &nume, const Act &act, const Date_Contact &date,
+                   const std::vector<Festival<float>> &festivaluri, const std::vector<std::string> &aptitudini,
+                   meserie tip) : Artist(nume, act, date, festivaluri), aptitudini(aptitudini), tip(tip) {}

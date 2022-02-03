@@ -73,17 +73,20 @@ int main() {
     srand(time(NULL));
     Aplicatie A;
     Rezervare R;
+    Act act1;
+    Date_Contact dc1= Date_Contact("0757539","adresa@email.com");
    try {
-       Cantaret cantaret1 = Cantaret("Green onions experience", "concert",
-                                     {"hey joe", "all along the watchtower", "purple haze"}, 120, tip::formatie,
-                                     false);
 
-       cantaret1.adauga_festival(Festival_factory<float>::electric_castle());
+       Cantaret cantaret1 = Cantaret("Green onions experience",act1 , dc1,{Festival_factory<float>::electric_castle()} ,"concert",
+                                     {"hey joe", "all along the watchtower", "purple haze"}, 120, false,tip::formatie);
+
+       //cantaret1.adauga_festival(Festival_factory<float>::electric_castle());
 
        rezervare_builder b;
 
        Rezervare R2 = b.anul(2022).luna("august").ziua(20).locatia("Carul cu bere").nume("Costel Bojog").ora_i(
                18).ora_s(20).build();
+       Aplicatie B = Aplicatie(A);
 
 
    }catch (eroare_artist &error){

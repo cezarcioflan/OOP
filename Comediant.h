@@ -14,12 +14,14 @@ class Comediant : public Artist{
     std::vector<std::string>disponibilitate={"orice eveniment"}; //la ce fel de evenimente este comediantul dispus sa participe Ex: nunti,zile de nastere etc.
     std::vector<std::string>conditii={"echipament propriu"};// echipamentul de care are nevoie pentru sustinerea unui show (microfon, lumini etc.)
     bool material=false;// 1 daca poate face glume special pentru evenimentul la care este chemat,0 daca prezinta doar show-ul standard
-    std::vector<std::string> gluma_seaca;
-    std::vector<std::string> observatie;
+    std::vector<std::string> glume_seci;
+    std::vector<std::string> observatii;
 
 public:
-    Comediant(const std::string &nume, const std::vector<std::string> &disponibilitate,
-               const std::vector<std::string> &conditii, bool material,const std::vector<std::string> &gluma_seaca, const std::vector<std::string> &observatie);
+    Comediant(const std::string &nume, const Act &act, const Date_Contact &date,
+              const std::vector<Festival<float>> &festivaluri, const std::vector<std::string> &disponibilitate,
+              const std::vector<std::string> &conditii, bool material, const std::vector<std::string> &glumaSeaca,
+              const std::vector<std::string> &observatie);
 
     std::shared_ptr <Artist> clona() const override;
 
@@ -37,7 +39,7 @@ public:
 
     void prezentare() override;
 
-    Comediant(const std::string &nume, const Comediant &copie);
+    //Comediant(const std::string &nume, const Comediant &copie);
 
 
 

@@ -56,16 +56,7 @@ void Cantaret::mesajul_de_rezervare() {
     std::cout << "sa cante la evenimentul tau, apeleaza numarul afisat pe ecran!" << std::endl << std::endl;
 }
 
-Cantaret::Cantaret(const std::string &nume, const std::string &numeShow, const std::vector<std::string> &playlist,
-                   int durata, const tip gen, bool restrictieVarsta) : Artist(nume), nume_show(numeShow),
-                                                                       playlist(playlist), durata(durata), gen(gen),
-                                                                       restrictie_varsta(restrictieVarsta) {
-    if(durata < 10)
-    {
-        throw eroare_durata();
-    }
 
-}
 
 void Cantaret::prezentare() {
 
@@ -75,10 +66,22 @@ void Cantaret::prezentare() {
 
 }
 
-Cantaret::Cantaret(const std::string &nume, const Cantaret &copie) : Artist(nume), nume_show(copie.nume_show),
-                                                                     durata(copie.durata),
-                                                                     restrictie_varsta(copie.restrictie_varsta),
-                                                                     gen(copie.gen) {}
+Cantaret::Cantaret(const std::string &nume, const Act &act, const Date_Contact &date,
+                   const std::vector<Festival<float>> &festivaluri, const std::string &numeShow,
+                   const std::vector<std::string> &playlist, int durata, bool restrictieVarsta, tip gen) : Artist(nume,
+                                                                                                                  act,
+                                                                                                                  date,
+                                                                                                                  festivaluri),
+                                                                                                           nume_show(
+                                                                                                                   numeShow),
+                                                                                                           playlist(
+                                                                                                                   playlist),
+                                                                                                           durata(durata),
+                                                                                                           restrictie_varsta(
+                                                                                                                   restrictieVarsta),
+                                                                                                           gen(gen) {}
+
+
 
 
 

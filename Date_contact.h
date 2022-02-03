@@ -12,6 +12,8 @@ class Date_Contact
     std::string adresa_email;
 
 public:
+  //  Date_Contact()=default;
+
     Date_Contact(const std::string &numarTelefon, const std::string &adresaEmail);
 
     friend std::ostream &operator<<(std::ostream &os, const Date_Contact &contact);

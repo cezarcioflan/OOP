@@ -37,11 +37,15 @@ class Aplicatie {
 
     int verifica_rezervari(const Rezervare &R);
 
-    void arata_rezervare(const Artist &A);
+    Aplicatie(const Aplicatie &copie);
 
     void arata_rezervari();
 
     void sorteaza_artisti_dupa_pret();
+
+    Aplicatie &operator=(Aplicatie &copie);
+
+    friend void swap(Aplicatie &a, Aplicatie &b);
 
 
 

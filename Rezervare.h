@@ -19,7 +19,8 @@ class Rezervare {
     int anul;
     int ora_inceperii;
     int ora_terminarii;
-   // std::vector<Rezervare> rez;
+
+
 
 public:
 
@@ -60,6 +61,8 @@ public:
 
     friend class rezervare_builder;
 
+    friend std::ostream &operator<<(std::ostream &os, const Rezervare &rezervare);
+
 
 };
 
@@ -87,5 +90,7 @@ public:
 
 
  };
+
+
 
 #endif //MAIN_PROJECT_REZERVARE_H
