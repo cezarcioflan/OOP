@@ -34,9 +34,9 @@ class Festival_factory;
 template <typename T>
 class Festival_factory{
 public:
-    static Festival<float> electric_castle();
-    static Festival<int> untold();
-    static Festival<float> comedy_fest();
+    static Festival<T> electric_castle();
+    static Festival<T> untold();
+    static Festival<T> comedy_fest();
 
 
 };

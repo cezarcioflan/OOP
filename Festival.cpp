@@ -18,15 +18,15 @@ std::ostream &operator<<(std::ostream &os, const Festival<T> &festival) {
 }
 
 template <typename T>
-Festival<float> Festival_factory<T>::electric_castle() {
-    return Festival<float>("Electric_Castle",8,20,25,"Bontida-Cluj",349.99);
+Festival<T> Festival_factory<T>::electric_castle() {
+    return Festival<T>("Electric_Castle",8,20,25,"Bontida-Cluj",349.99);
 }
 template <typename T>
-Festival<int> Festival_factory<T>::untold() {
-    return Festival<int>("Untold",8,12,17,"Cluj",450);
+Festival<T> Festival_factory<T>::untold() {
+    return Festival<T>("Untold",8,12,17,"Cluj",450);
 }
 
 template <typename T>
-Festival<float> Festival_factory<T>::comedy_fest() {
-    return Festival<float>("Comedy Fest",12,12,13,"Brasov",100.99);
+Festival<T> Festival_factory<T>::comedy_fest() {
+    return Festival<T>("Comedy Fest",12,12,13,"Brasov",100.99);
 }
